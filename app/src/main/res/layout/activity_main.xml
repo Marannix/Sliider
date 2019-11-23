@@ -14,6 +14,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/pageIndicatorView"/>
 
+    <Button
+            android:id="@+id/previousButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="BACK"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/pageIndicatorView"
+            app:layout_constraintHorizontal_bias="0.34"/>
+
     <com.rd.PageIndicatorView
             android:id="@+id/pageIndicatorView"
             android:layout_width="wrap_content"
@@ -30,4 +42,17 @@
             app:piv_unselectedColor="@color/colorPrimary"
             app:piv_padding="8dp"
             app:piv_radius="6dp"/>
+
+    <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXT"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@+id/pageIndicatorView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.66"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

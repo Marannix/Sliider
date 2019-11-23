@@ -1,7 +1,6 @@
 package com.example.sliider
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,11 @@ class SliderAdapter(
     val context: Context
 ) : PagerAdapter() {
 
-    val slideImage = emptyList<Drawable>()
+    val slideImage = listOf(
+        R.drawable.ic_selfie,
+        R.drawable.ic_hooked,
+        R.drawable.ic_popular
+    )
 
     val slideHeader = listOf(
         "Lorem ipsum dolor.",
@@ -36,9 +39,10 @@ class SliderAdapter(
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-//        return super.instantiateItem(container, position)
         val layoutInflater : LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = layoutInflater.inflate(R.layout.slide_layout, container, false)
+
+        view.onboardingImage.setImageResource(slideImage[position])
 
         view.onboardingHeader.text = slideHeader[position]
         view.onboardingDescription.text = slideDescription[position]
@@ -49,7 +53,6 @@ class SliderAdapter(
 
     // Once last page has been reached it will stop instead of creating multiple slide (stops crash)
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-//        super.destroyItem(container, position, `object`)
         container.removeView(`object` as ConstraintLayout)
     }
 }

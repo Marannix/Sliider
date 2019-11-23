@@ -8,8 +8,8 @@
     <ImageView
             android:id="@+id/onboardingImage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_undraw_chasing_love"
             app:layout_constraintVertical_bias="0.40"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
