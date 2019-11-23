@@ -43,6 +43,7 @@
             app:piv_padding="8dp"
             app:piv_radius="6dp"/>
 
+
     <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
@@ -54,5 +55,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.66"/>
 
+    <Button
+            android:id="@+id/finishButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FINISH"
+            android:background="@android:color/transparent"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/pageIndicatorView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.66"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

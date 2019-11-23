@@ -1,5 +1,6 @@
 package com.example.sliider
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     private var currentPage = 0
     private var lastPage = 2
 
+    // TODO: Create shared preference to only see this screen once
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,33 +44,42 @@ class MainActivity : AppCompatActivity() {
                         nextButton.isEnabled = true
                         previousButton.isEnabled = false
                         previousButton.visibility = View.INVISIBLE
-
-                        nextButton.text = "Next"
-                        previousButton.text = ""
+                        finishButton.visibility = View.INVISIBLE
                     }
 
                     lastPage -> {
                         nextButton.isEnabled = true
                         previousButton.isEnabled = true
-                        previousButton.visibility = View.VISIBLE
 
-                        nextButton.text = "Finish"
-                        previousButton.text = "Back"
+                        nextButton.visibility = View.INVISIBLE
+                        previousButton.visibility = View.VISIBLE
+                        finishButton.visibility = View.VISIBLE
+
+                        finishButton.setOnClickListener {
+                            launchDashboard()
+                        }
                     }
 
                     else -> {
                         nextButton.isEnabled = true
                         previousButton.isEnabled = true
-                        previousButton.visibility = View.VISIBLE
 
-                        nextButton.text = "Next"
-                        previousButton.text = "Back"
+                        nextButton.visibility = View.VISIBLE
+                        previousButton.visibility = View.VISIBLE
+                        finishButton.visibility = View.INVISIBLE
                     }
                 }
             }
 
         })
 
+
+    }
+
+    private fun launchDashboard() {
+        val intent = Intent(this, DashboardActivity::class.java)
+        startActivity(intent)
+        finish()
 
     }
 }
